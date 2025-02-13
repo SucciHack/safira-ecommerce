@@ -39,7 +39,7 @@ export function TopHeader() {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          <div className="flex flex-1 items-center border rounded-r">
+          <div className="hidden md:flex flex-1 items-center border rounded-r">
             <input type="text" placeholder="Search here..." className="flex-1 px-4 py-2 outline-none" />
             <Button type="submit" size="icon" className="rounded-l-none bg-[#00B853] hover:bg-[#00A048]">
               <Search className="h-4 w-4" />

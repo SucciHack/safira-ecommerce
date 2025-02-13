@@ -37,7 +37,7 @@ const products = [
   ]
 export default function MostViewedSection() {
   return (
-    <div className='grid grid-cols-4 gap-3 py-6 px-3'>
+    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 py-6 px-3'>
         {
             products.map((product,i)=>{
                 return <ProductCard key={i} product={product}/>

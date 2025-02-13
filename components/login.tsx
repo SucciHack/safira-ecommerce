@@ -6,6 +6,7 @@ import CustomCarousel from "./custom-corousel";
 import TextInput from "./text-input";
 import SubmitButton from "./submit-button";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 export type LogInInputProps = {
   email: string;
   password: string;
@@ -35,14 +36,15 @@ export default function LogIn() {
         if(response.status ===403){
             setErr("Wrong credentials")
             setIsLoading(false)
-            alert("Wrong credentials")
+            toast.error("wrong credentials")
         } else if(response.status===200){
             setIsLoading(false)
-            router.push("/dashboard")  
+            router.push("/dashboard")
+            toast.success("loggedIn successfully")
         } 
     } catch (error) {
       console.log(error)
-      alert("Something went wrong")  
+      toast.error("wrong credentials")
     }
 
   }

@@ -32,7 +32,7 @@ export function MainNav() {
   return (
     <div className=" bg-white/60 backdrop-blur-lg shadow-md p-2 sticky top-0 z-50">
       <div className="container mx-auto flex h-14 items-center justify-between px-4">
-        <div className="flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8">
           {/* All Categories Dropdown */}
           <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
             <DropdownMenuTrigger asChild>
