@@ -4,17 +4,17 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const carouselItems = [
   {
-    image: "/phone.jpg",
+    image: "/phone-min.jpg",
     title: "Join Our Network,",
     subtitle: "Transform Healthcare",
   },
   {
-    image: "/relax.jpg",
+    image: "/relax-min.jpg",
     title: "Empower Patients,",
     subtitle: "Anytime, Anywhere",
   },
   {
-    image: "/relaxed.jpg",
+    image: "/relaxed-min.jpg",
     title: "Advance Your Practice,",
     subtitle: "With Telemedicine",
   },
