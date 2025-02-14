@@ -35,17 +35,19 @@ export default function LogIn() {
         reset()
         if(response.status ===403){
             setErr("Wrong credentials")
-            setIsLoading(false)
+            // setIsLoading(false)
             toast.error("wrong credentials")
         } else if(response.status===200){
-            setIsLoading(false)
+            // setIsLoading(false)
             router.push("/dashboard")
             toast.success("loggedIn successfully")
-        } 
+        }
     } catch (error) {
       console.log(error)
       toast.error("wrong credentials")
-    }
+    }finally{
+      setIsLoading(false)
+    } 
 
   }
   return (
