@@ -5,15 +5,15 @@ import bycrypt from "bcrypt"
 //POST
 export async function POST(request:NextRequest) {
     try {
-        const data = await request.json()
-        const {email, password,fullName,
+            const data = await request.json()
+            const {email, password,fullName,
             phone,
             image,} = data
-        const existingUser = await db.user.findUnique({
-            where:{
-                email
-            }
-        })
+            const existingUser = await db.user.findUnique({
+                where:{
+                    email
+                }
+            })
         if(existingUser){
             return NextResponse.json({
                 data:null,

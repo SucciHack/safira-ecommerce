@@ -6,6 +6,8 @@ import CustomCarousel from "./custom-corousel";
 import TextInput from "./text-input";
 import SubmitButton from "./submit-button";
 import ImageInput from "./categoryImageUpload";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 export type RegisterInputProps = {
   fullName: string;
   email: string;
@@ -23,11 +25,13 @@ export default function RegisterV1() {
     reset,
     formState: { errors },
   } = useForm<RegisterInputProps>();
+  const router = useRouter()
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
   async function onSubmit(data: RegisterInputProps) {
     data.image = imageUrl
     setIsLoading(true)
-    const response = await fetch(`${baseUrl}/api/v1/users`,{
+    try {
+      const response = await fetch(`${baseUrl}/api/v1/users`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json",
@@ -36,9 +40,14 @@ export default function RegisterV1() {
     })
     reset()
     if(response.ok){
+      router.push("/logIn")
       setIsLoading(false)
+      toast.success("Account created successfully")
     }
-    console.log(response)
+    } catch (error) {
+      console.log(error)
+      toast.error("failed to create Account")
+    }
   }
   return (
     <div className="w-full lg:grid h-screen lg:min-h-screen lg:grid-cols-2 relative items-center">
